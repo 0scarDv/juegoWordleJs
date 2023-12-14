@@ -330,10 +330,12 @@ function comprobarPalabra() {
       break;
     default:
       alert("Error");
+
   }
   contador++;
   console.log("contador: " + contador);
   console.log("oportunidades: " + intentos);
+  document.getElementById('entrada').value = '';
 }
 
 function recargar() {
@@ -346,4 +348,11 @@ function mostrarMensaje() {
 btnJugar.addEventListener('click', comprobarPalabra);
 btnDeNuevo.addEventListener('click', recargar);
 btnAyuda.addEventListener('click', mostrarMensaje);
+
+entrada.addEventListener('keyup', function (event) {
+  if (event.keyCode === 13) {
+    // Llama a la función que deseas ejecutar al presionar 'Enter'
+    comprobarPalabra();
+  }
+});
 
